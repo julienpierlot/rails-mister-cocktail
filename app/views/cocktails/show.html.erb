@@ -5,19 +5,18 @@
       <div class="cocktail-details">
         <p>Details:</p>
         <ul>
-          <% @cocktail.ingredients.each do |ingredient| %>
+          <% @cocktail.doses.each do |dose| %>
           <li>
             <div class="cocktail-info">
-              <p><%= ingredient.name %> <span> <%= @dose.description %></span></p>
-              <%= link_to 'Delete', dose_path(Dose.find_by(ingredient: ingredient, cocktail: @cocktail)), method: :delete %>
+              <p><%= dose.ingredient.name %> <span> <%= dose.description %></span></p>
+              <%= link_to 'Delete', dose_path(dose), method: :delete %>
             </div>
           </li>
           <% end %>
         </ul>
       </div>
-      <%= simple_form_for @dose do |f| %>
-        <%= f.association :ingredient%>
-        <%= f.association :cocktail, as: :hidden, input_html: { value: @cocktail.id } %>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.association :ingredient, collection: Ingredient.all, input_html: { id: "ingredients-dropdown" }, include_hidden: false %>
         <%= f.input :description %>
         <%= f.submit 'Add ingredient' %>
       <% end %>

@@ -1,12 +1,18 @@
 class DosesController < ApplicationController
 
+  def index
+    redirect_to cocktail_path(params[:cocktail_id])
+  end
+
   def create
+    @cocktail = Cocktail.find(params[:cocktail_id])
     @dose = Dose.new(dose_params)
+    @dose.cocktail = @cocktail
     if @dose.save
-      flash[:notice] = "Ingredient has been added"
+      flash[:success] = "Ingredient has been added"
       redirect_to cocktail_path(@dose.cocktail)
     else
-      @cocktail = @dose.cocktail
+      flash[:alert] = "The ingredient is already present."
       render 'cocktails/show'
     end
   end

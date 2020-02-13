@@ -1,12 +1,15 @@
 .navigation {
   background-color: white;
+  height: $nav-height;
 }
 
 .navigation-items {
   display: flex;
   align-items: center;
   list-style: none;
-  padding-left: 0px;
+  justify-content: space-between;
+  padding: 0px 20px;
+  margin: 0;
 }
 
 .navigation-item {

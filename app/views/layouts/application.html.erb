@@ -6,13 +6,27 @@
     <title>RailsMisterCocktail</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
     <% if flash[:notice].present? %>
-      <p><%= flash[:notice] %></p>
+      <div class="alert alert-dark" role="alert">
+        <p><%= flash[:notice] %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert].present? %>
+      <div class="alert alert-danger" role="alert">
+        <p><%= flash[:alert] %></p>
+      </div>
+    <% end %>
+    <% if flash[:success].present? %>
+      <div class="alert alert-success" role="alert">
+        <p><%= flash[:success] %></p>
+      </div>
     <% end %>
     <%= render 'shared/navigation' %>
     <%= yield %>
