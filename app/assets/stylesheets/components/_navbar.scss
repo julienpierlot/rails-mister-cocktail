@@ -1,13 +1,18 @@
 .navigation {
   background-color: white;
   height: $nav-height;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .navigation-items {
+  flex-grow: 1;
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   list-style: none;
-  justify-content: space-between;
   padding: 0px 20px;
   margin: 0;
 }
@@ -20,4 +25,22 @@
   width: 30px;
   height: 30px;
   object-fit: cover;
+}
+
+#search-field {
+  border: 2px solid $black;
+  padding: 5px;
+  color: $black;
+  margin: 10px 10px 10px 0px;
+  width: 200px;
+}
+
+
+@media (max-width: 520px) {
+  .navigation {
+    height: auto;
+  } 
+  #search-field {
+    width: 100%
+  }
 }

@@ -6,7 +6,7 @@
     <li>
       <%= form_with url: '/search', local: true, method: 'get' do |f| %>
         <%= f.text_field :keywords, id: 'search-field' %>
-        <%= f.submit 'Search', input_html: { class: 'btn-white' }%>
+        <%= f.submit 'Search', class: 'btn-white'%>
       <% end %>
     </li>
   </ul>
