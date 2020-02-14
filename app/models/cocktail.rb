@@ -4,5 +4,5 @@ class Cocktail < ApplicationRecord
   has_one_attached :photo
 
   validates :name, uniqueness: true, presence: true
-  validates :photo, attached: true, content_type: { in: ['image/png', 'image/jpg'], message: 'is not a valid format' }
+  # validates :photo, attached: true
 end
