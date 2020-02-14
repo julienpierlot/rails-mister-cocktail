@@ -10,7 +10,7 @@
         <h2 class="mt-4">Choose a cocktail</h2>
         <ul class="cards-cocktails">
           <% @cocktails.each do |cocktail| %>
-            <li class="card-cocktail">
+            <li class="card-cocktail" data-aos="zoom-in" data-aos-duration="500">
                   <%= link_to cocktail_path(cocktail) do %>
                     <% if cocktail.photo.attached? %>
                       <div class="cocktail-info" style= "background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= cl_image_path(cocktail.photo.key) %>)" >

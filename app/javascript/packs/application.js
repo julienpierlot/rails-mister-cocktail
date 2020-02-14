@@ -18,7 +18,11 @@ require("channels")
 import 'bootstrap';
 import { initSelect2 } from '../plugins/select2';
 import { initTyped } from '../plugins/typed';
+import AOS from 'aos';
+// import 'aos/dist/aos.css'; // You can also use  for styles
 
 
 initSelect2();
 initTyped();
+// ..
+AOS.init();
