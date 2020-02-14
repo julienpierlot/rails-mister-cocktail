@@ -6,26 +6,24 @@
 <div class="container">
   <div class="row">
     <div class="col-12 text-center">
-      <h2 class="mt-4">Choose a cocktail</h2>
-      <ul class="cards-cocktails">
-        <% @cocktails.each do |cocktail| %>
-          <li class="card-cocktail">
-            <div class="cocktail-info" style= "background: url(#{image_tag 'logo.png'})" >
-              <%#= link_to cocktail.name.upcase, cocktail_path(cocktail) %>
-              <% if cocktail.photo.attached? %>
-                <%= link_to cocktail_path(cocktail) do %>
-                  <p><%= cocktail.name.upcase %></p>
-                <% end %>
-              <% else %>
-                <%= link_to cocktail_path(cocktail) do %>
-                  <%#= image_tag 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', size: "100x100" %>
-                  <p><%= cocktail.name.upcase %></p>
-                <% end %>
-              <% end %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
+      <% if @cocktails.any? %>
+        <h2 class="mt-4">Choose a cocktail</h2>
+        <ul class="cards-cocktails">
+          <% @cocktails.each do |cocktail| %>
+            <li class="card-cocktail">
+                  <%= link_to cocktail_path(cocktail) do %>
+                    <% if cocktail.photo.attached? %>
+                      <div class="cocktail-info" style= "background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= cl_image_path(cocktail.photo.key) %>)" >
+                    <% else %>
+                      <div class="cocktail-info" style= "background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= image_path 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' %>)" >
+                    <% end %>
+                      <p><%= cocktail.name.upcase %></p>
+                    </div>
+                  <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= link_to 'Add a new cocktail', new_cocktail_path, class: 'btn btn-primary', class: 'btn-white btn-white-big' %>
     </div>
   </div>

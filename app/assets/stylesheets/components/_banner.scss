@@ -1,6 +1,5 @@
 .banner {
   background-size: cover;
-  height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,16 +8,17 @@
   color: white;
   &-home {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1496318447583-f524534e9ce1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1405&q=80');
+    height: calc(100vh - 50px);
+    h1 {
+      font-size: 4em;
+    }
+    p {
+      font-size: 2em;
+    }
   }
   &-cocktail {
-    height: calc(50vh - 50px);
     background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8));
-  }
-  h1 {
-    font-size: 4em;
-  }
-  p {
-    font-size: 2em;
+    height: 20%;
   }
 }
 

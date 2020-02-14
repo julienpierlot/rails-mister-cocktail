@@ -18,6 +18,7 @@
 
 .link-black {
   color: $black;
+  display: inline-block;
   &:hover {
     text-decoration: underline;
     color: $black;
