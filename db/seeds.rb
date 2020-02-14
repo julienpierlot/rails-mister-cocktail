@@ -13,6 +13,6 @@ puts "creating cocktails..."
 Cocktail.create!(name: "Mojito")
 
 puts "creating dose"
-Dose.create!(ingredient: Ingredient.last, cocktail: Cocktail.last, description: "6cl")
+Dose.create!(ingredient: Ingredient.find_by(name: 'Dark rum'), cocktail: Cocktail.last, description: "6cl")
 
 puts "done"
